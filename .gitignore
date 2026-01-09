@@ -1,0 +1,9 @@
+*.svg
+*.png
+
+env/
+__pycache__/
+Ausgabe/
+
+test.py
+test.ipynb
