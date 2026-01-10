@@ -1,4 +1,22 @@
 import drawsvg as dw
+import numpy as np
+
+def welle(name, x_start, y_start, anzahl_wellen, breite_welle, amplitude):
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    # Start
+    p.M(x_start, y_start)
+    
+    # Eine Welle besteht aus zwei Halbbögen (Runter und Hoch)
+    for i in range(int(anzahl_wellen * 2)):
+        if i % 2 == 1:
+            richtung = 1
+        else:
+            richtung = -1
+        dy = amplitude * richtung
+        p.c(breite_welle/4, 0, breite_welle/4, dy, breite_welle/2, dy)
+        
+    name.append(p)
+    return name
 
 def taktischen_zeichen(grundzeichen, fachdienst='', organisation='HiOrg'):
     zeichen = dw.Drawing(400,375)
@@ -7,12 +25,20 @@ def taktischen_zeichen(grundzeichen, fachdienst='', organisation='HiOrg'):
         einheit(zeichen, organisation)
     elif grundzeichen == 'Fahrzeug':
         fahrzeug(zeichen, organisation)
-    if fachdienst == 'Sanität':
-        sandienst(zeichen)
-    if fachdienst == 'Betreuung':
-        betreuung(zeichen)
-    if fachdienst == 'Erkundung':
-        erkundung(zeichen)
+    if fachdienst == '':
+        pass
+    else:
+        fachdienst(zeichen)
+    #if fachdienst == 'Sanität':
+    #    sandienst(zeichen)
+    #if fachdienst == 'Betreuung':
+    #    betreuung(zeichen)
+    #if fachdienst == 'Erkundung':
+    #    erkundung(zeichen)
+    #if fachdienst == 'Löschen':
+    #    löschen(zeichen)
+    #if fachdienst == 'Wasserversorgung':
+    #    wasserversorgung(zeichen)
     return zeichen
 
 # Grundzeichen
@@ -76,11 +102,25 @@ def kette(name):
     name.append(dw.Rectangle(70,300,260,30,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
     return name
 
-def wlf(name):
+def wlf(name, mobilität='Landgebunden'):
     p = dw.Path(stroke='black', stroke_width=10, fill='none')
     name.append(p.M(30,90).V(320).H(370))
-    name.append(dw.Circle(80, 340, 15, fill='none', stroke='black', stroke_width=10))
-    name.append(dw.Circle(320, 340, 15, fill='none', stroke='black', stroke_width=10))
+    if mobilität == 'Landgebunden':
+        name.append(dw.Circle(80, 340, 15, fill='none', stroke='black', stroke_width=10))
+        name.append(dw.Circle(320, 340, 15, fill='none', stroke='black', stroke_width=10))
+    elif mobilität == 'Geländefähig':
+        name.append(dw.Circle(200, 340, 15, fill='none', stroke='black', stroke_width=10))
+        name.append(dw.Circle(80, 340, 15, fill='none', stroke='black', stroke_width=10))
+        name.append(dw.Circle(320, 340, 15, fill='none', stroke='black', stroke_width=10))
+    elif mobilität == 'Schiene':
+        name.append(dw.Circle(80, 340, 15, fill='none', stroke='black', stroke_width=10))
+        name.append(dw.Circle(120, 340, 15, fill='none', stroke='black', stroke_width=10))
+        name.append(dw.Circle(280, 340, 15, fill='none', stroke='black', stroke_width=10))
+        name.append(dw.Circle(320, 340, 15, fill='none', stroke='black', stroke_width=10))
+    elif mobilität == 'Kette':
+        name.append(dw.Rectangle(60,320,280,30,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
+
+
     return name
 
 # Fachdienste
@@ -98,6 +138,29 @@ def erkundung(name):
     name.append(dw.Line(50,300,350,100,stroke='black', stroke_width=10))
     return name
 
+def löschen(name):
+    name.append(dw.Line(50,200,350,200,stroke='black',stroke_width=10))
+    name.append(dw.Line(225,200,350,100,stroke='black',stroke_width=10))
+    name.append(dw.Line(225,200,350,300,stroke='black',stroke_width=10))
+    return name
+
+def wasserversorgung(name):
+    löschen(name)
+    welle(name,70,180,2,70,30)
+    return name
+
+def transport(name):
+    name.append(dw.Circle(200, 200, 90, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Line(200,100,200,300,stroke='black',stroke_width=10))
+    name.append(dw.Line(110,200,290,200,stroke='black',stroke_width=10))
+    name.append(dw.Line(200-90/np.sqrt(2),200-90/np.sqrt(2),200+90/np.sqrt(2),200+90/np.sqrt(2),stroke='black',stroke_width=10))
+    name.append(dw.Line(200-90/np.sqrt(2),200+90/np.sqrt(2),200+90/np.sqrt(2),200-90/np.sqrt(2),stroke='black',stroke_width=10))
+    return name
+
+def rht(name):
+    name.append(dw.Line(120,290,265,145,stroke='black',stroke_width=10))
+    name.append(dw.Rectangle(265,145-30,30,30,stroke='black',stroke_width=10,fill='none'))
+    return name
 # Stärke
 def trupp(name):
     name.append(dw.Circle(200, 70, 15))
@@ -129,5 +192,4 @@ def grossverband(name):
     name.append(dw.Line(230, 85, 230, 45, stroke = 'black', stroke_width = 15))
     return name
 
-
-wlf(taktischen_zeichen(grundzeichen='Fahrzeug',fachdienst='Betreuung',organisation='Polizei')).save_svg('Ausgabe/Penis.svg')
+taktischen_zeichen(grundzeichen='Einheit',fachdienst=rht,organisation='Polizei').save_svg('Ausgabe/Penis.svg')
