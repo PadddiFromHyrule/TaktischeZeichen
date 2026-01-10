@@ -1,8 +1,8 @@
 import drawsvg as dw
 
 def taktischen_zeichen(grundzeichen, fachdienst='', organisation='HiOrg'):
-    zeichen = dw.Drawing(400,350)
-    zeichen.append(dw.Rectangle(0,0,400,350,fill='white'))
+    zeichen = dw.Drawing(400,375)
+    zeichen.append(dw.Rectangle(0,0,400,375,fill='white'))
     if grundzeichen == 'Einheit':
         einheit(zeichen, organisation)
     elif grundzeichen == 'Fahrzeug':
@@ -33,7 +33,6 @@ def farbe(organisation):
         farbe = '#ffffff'
     return farbe
 
-
 def einheit(name, organisation='HiOrg'):
     füllung = farbe(organisation)
     name.append(dw.Rectangle(50,100,300,200,fill=füllung, stroke='black', stroke_width=10))
@@ -42,9 +41,47 @@ def einheit(name, organisation='HiOrg'):
 def fahrzeug(name, organisation='HiOrg'):
     füllung = farbe(organisation)
     p = dw.Path(stroke='black', stroke_width=10, fill=füllung)
-    name.append(p.M(50,100).V(250).H(350).V(50).C(250,100,150,100,50,100).Z())
+    name.append(p.M(50,100).V(300).H(350).V(100).C(250,150,150,150,50,100).Z())
     return name
 
+# Mobilität
+def landgebunden(name):
+    name.append(dw.Circle(80, 320, 15, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Circle(320, 320, 15, fill='none', stroke='black', stroke_width=10))
+    return name
+
+def gelaendefähig(name):
+    name.append(dw.Circle(80, 320, 15, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Circle(320, 320, 15, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Circle(200, 320, 15, fill='none', stroke='black', stroke_width=10))
+    return name
+
+def schiene(name):
+    name.append(dw.Circle(80, 320, 15, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Circle(120, 320, 15, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Circle(280, 320, 15, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Circle(320, 320, 15, fill='none', stroke='black', stroke_width=10))
+    return name
+
+def anhaenger(name):
+    name.append(dw.Line(20,175,50,175,stroke='black',stroke_width=10))
+    return name
+
+def abroller(name):
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    name.append(p.M(50,185).A(15,15,0,1,1,50,165).Z())
+    return name
+
+def kette(name):
+    name.append(dw.Rectangle(70,300,260,30,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
+    return name
+
+def wlf(name):
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    name.append(p.M(30,90).V(320).H(370))
+    name.append(dw.Circle(80, 340, 15, fill='none', stroke='black', stroke_width=10))
+    name.append(dw.Circle(320, 340, 15, fill='none', stroke='black', stroke_width=10))
+    return name
 
 # Fachdienste
 def sandienst(name):
@@ -93,4 +130,4 @@ def grossverband(name):
     return name
 
 
-grossverband(taktischen_zeichen(grundzeichen='Einheit',fachdienst='Betreuung',organisation='Polizei')).save_svg('Ausgabe/Penis.svg')
+wlf(taktischen_zeichen(grundzeichen='Fahrzeug',fachdienst='Betreuung',organisation='Polizei')).save_svg('Ausgabe/Penis.svg')
