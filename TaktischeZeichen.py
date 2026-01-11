@@ -4,6 +4,7 @@ from grundzeichen import *
 from fachdienste import *
 from mobilitaet import *
 from staerken import *
+from sonstige import *
 
 
 
@@ -20,4 +21,5 @@ def taktischen_zeichen(grundzeichen=einheit, fachdienst='', organisation='HiOrg'
     else:
         staerke(zeichen)
     return zeichen
-wlf(taktischen_zeichen(fahrzeug,wasserversorgung,organisation='Sonstige',staerke=grossverband),'Kette').save_svg('Ausgabe/Penis.svg')
+
+taktischen_zeichen(befehlsstelle,'','Führung').save_svg('Ausgabe/Penis.svg')

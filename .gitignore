@@ -1,5 +1,6 @@
 *.svg
 *.png
+*.pdf 
 
 env/
 __pycache__/

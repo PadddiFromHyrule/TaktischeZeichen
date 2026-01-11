@@ -1,5 +1,5 @@
 import drawsvg as dw
-# Mobilität
+# Mobilität und sonstige Fahrzeuge
 def landgebunden(name):
     name.append(dw.Circle(-120, 120, 15, fill='none', stroke='black', stroke_width=10))
     name.append(dw.Circle(120, 120, 15, fill='none', stroke='black', stroke_width=10))
@@ -48,4 +48,68 @@ def wlf(name, mobilität='Landgebunden'):
         name.append(dw.Circle(80, 140, 15, fill='none', stroke='black', stroke_width=10))
     elif mobilität == 'Kette':
         name.append(dw.Rectangle(-130,120,260,30,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
+    elif mobilität == 'Anhänger':
+        name.append(dw.Line(-200,-70,-170,-70,stroke='black',stroke_width=10))
+    return name
+
+def fahrrad():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    name.append(p.M(-100,-50).A(100,100,0,0,1,100,-50).M(0,-150).V(100))
+    return name
+
+def kraftrad():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    fahrrad(name)
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    name.append(p.M(-40,-20).H(40))
+    return name
+
+def wasserfahrzeug():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    # Evtl. als Grundzeichen?
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    name.append(p.M(-150,-50).A(150,150,0,0,0,150,-50).Z())
+    return name
+
+def flugzeug():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    name.append(dw.Rectangle(-150,-20,140,40,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
+    name.append(dw.Rectangle(10,-20,140,40,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
+    name.append(dw.Line(0,-50,0,50,stroke_width=10, stroke='black'))
+    return name
+
+def hubschrauber():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    name.append(dw.Rectangle(-150,-20,140,40,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
+    name.append(dw.Rectangle(10,-20,140,40,rx=10,ry=10,stroke_width=10, stroke='black',fill='none'))
+    name.append(dw.Line(0,0,0,100,stroke_width=10, stroke='black'))
+    name.append(dw.Line(-50,100,50,100,stroke_width=10, stroke='black'))
+    return name
+
+def hebegerät():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    name.append(p.M(-75,100).V(-100).H(0).A(37.5,37.5,0,0,0,75,-100))
+    return name
+
+def bagger():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    p.M(-75,100).V(-100).H(0).A(37.5,37.5,0,0,0,75,-100).args['transform'] = 'rotate(45)'
+    name.append(p)
+    return name
+
+def räumgerät():
+    name = dw.Drawing(400,400,origin='center')
+    name.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    p = dw.Path(stroke='black', stroke_width=10, fill='none')
+    name.append(p.M(-150,0).H(75).M(75,-60).V(30).L(125,50))
     return name
