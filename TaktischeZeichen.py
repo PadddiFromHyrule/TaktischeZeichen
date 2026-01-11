@@ -5,27 +5,19 @@ from fachdienste import *
 from mobilitaet import *
 from staerken import *
 
-def taktischen_zeichen(grundzeichen, fachdienst='', organisation='HiOrg'):
-    zeichen = dw.Drawing(400,375)
-    zeichen.append(dw.Rectangle(0,0,400,375,fill='white'))
-    if grundzeichen == 'Einheit':
-        einheit(zeichen, organisation)
-    elif grundzeichen == 'Fahrzeug':
-        fahrzeug(zeichen, organisation)
+
+
+def taktischen_zeichen(grundzeichen=einheit, fachdienst='', organisation='HiOrg', staerke=''):
+    zeichen = dw.Drawing(400,400,origin='center')
+    zeichen.append(dw.Rectangle(-200,-200,400,400,fill='white'))
+    grundzeichen(zeichen,organisation)
     if fachdienst == '':
         pass
     else:
         fachdienst(zeichen)
-    #if fachdienst == 'Sanität':
-    #    sandienst(zeichen)
-    #if fachdienst == 'Betreuung':
-    #    betreuung(zeichen)
-    #if fachdienst == 'Erkundung':
-    #    erkundung(zeichen)
-    #if fachdienst == 'Löschen':
-    #    löschen(zeichen)
-    #if fachdienst == 'Wasserversorgung':
-    #    wasserversorgung(zeichen)
+    if staerke == '':
+        pass
+    else:
+        staerke(zeichen)
     return zeichen
-
-taktischen_zeichen(grundzeichen='Einheit',fachdienst=rht,organisation='Polizei').save_svg('Ausgabe/Penis.svg')
+wlf(taktischen_zeichen(fahrzeug,wasserversorgung,organisation='Sonstige',staerke=grossverband),'Kette').save_svg('Ausgabe/Penis.svg')

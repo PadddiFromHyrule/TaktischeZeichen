@@ -1,31 +1,31 @@
 import drawsvg as dw
 # Stärke
 def trupp(name):
-    name.append(dw.Circle(200, 70, 15))
+    name.append(dw.Circle(0, -130, 15))
     return name
 
 def gruppe(name):
-    name.append(dw.Circle(175, 70, 15))
-    name.append(dw.Circle(225, 70, 15))
+    name.append(dw.Circle(-25, -130, 15))
+    name.append(dw.Circle(25, -130, 15))
     return name
 
 def zug(name):
-    name.append(dw.Circle(200, 70, 15))
-    name.append(dw.Circle(155, 70, 15))
-    name.append(dw.Circle(245, 70, 15))
+    name.append(dw.Circle(0, -130, 15))
+    name.append(dw.Circle(-45, -130, 15))
+    name.append(dw.Circle(45, -130, 15))
     return name
 
 def bereitschaft(name):
-    name.append(dw.Line(200, 85, 200, 45, stroke = 'black', stroke_width = 15))
+    name.append(dw.Line(0, -115, 0, -155, stroke = 'black', stroke_width = 15))
     return name
 
 def abteilung(name):
-    name.append(dw.Line(185, 85, 185, 45, stroke = 'black', stroke_width = 15))
-    name.append(dw.Line(215, 85, 215, 45, stroke = 'black', stroke_width = 15))
+    name.append(dw.Line(-15, -115, -15, -155, stroke = 'black', stroke_width = 15))
+    name.append(dw.Line(15, -115, 15, -155, stroke = 'black', stroke_width = 15))
     return name
 
 def grossverband(name):
-    name.append(dw.Line(170, 85, 170, 45, stroke = 'black', stroke_width = 15))
-    name.append(dw.Line(200, 85, 200, 45, stroke = 'black', stroke_width = 15))
-    name.append(dw.Line(230, 85, 230, 45, stroke = 'black', stroke_width = 15))
+    name.append(dw.Line(-30, -115, -30, -155, stroke = 'black', stroke_width = 15))
+    name.append(dw.Line(0, -115, 0, -155, stroke = 'black', stroke_width = 15))
+    name.append(dw.Line(30, -115, 30, -155, stroke = 'black', stroke_width = 15))
     return name
