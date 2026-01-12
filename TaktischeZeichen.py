@@ -5,21 +5,12 @@ from fachdienste import *
 from mobilitaet import *
 from staerken import *
 from sonstige import *
+from verwaltungsstufen import *
 
-
-
-def taktischen_zeichen(grundzeichen=einheit, fachdienst='', organisation='HiOrg', staerke=''):
-    zeichen = dw.Drawing(400,400,origin='center')
-    zeichen.append(dw.Rectangle(-200,-200,400,400,fill='white'))
-    grundzeichen(zeichen,organisation)
-    if fachdienst == '':
-        pass
-    else:
-        fachdienst(zeichen)
-    if staerke == '':
-        pass
-    else:
-        staerke(zeichen)
-    return zeichen
-
-taktischen_zeichen(befehlsstelle,'','Führung').save_svg('Ausgabe/Penis.svg')
+zeichen = dw.Drawing(450,450,origin='center')
+zeichen.append(dw.Rectangle(-225,-225,450,450,fill='white'))
+#person(zeichen,'THW')
+#sandienst(zeichen,arzt=True)
+#europäische_union(zeichen)
+bagger(zeichen)
+zeichen.save_svg('Ausgabe/Penis.svg')
