@@ -6,6 +6,7 @@ Dieses Skript soll für die Erstellung von taktischen Zeichen als *.svg oder *.p
 ## Motivation
 Unabhängig von bereits bestehenden Software-Lösungen (bspw. [taktische-zeichen.dev](https://taktische-zeichen.dev/)) möchte ich das aus persönlichem Interesse umsetzen und zur Vertiefung meiner Programmierfähigkeiten nutzen. Taktische Zeichen faszinieren mich seit dem ersten Ausbildungsabend an dem ich von ihnen Erfahren habe. Ich möchte das modulare System möglichst vollständig umsetzen, sodass jedes denkbare taktische Zeichen (egal wie sinnvoll dieses sein mag) möglichst ansehnlich erstellt werden kann. 
 ## Work in Progress
+### Zeichen
 - [x] Grundzeichen 
 - [x] Farben
 - [ ] Ergänzungszeichen
@@ -29,3 +30,6 @@ Unabhängig von bereits bestehenden Software-Lösungen (bspw. [taktische-zeichen
 - [x] Verwaltungsstufen
 - [ ] Gefahren- und Schadensdarstellung
 - [ ] Texte an versch. Stellen
+### Sonstiges
+- [ ] GUI
+- [ ] System zur Skalierung an Grundzeichen
