@@ -36,11 +36,12 @@ def fahrzeug(name, organisation='HiOrg'):
     p = dw.Path(stroke='black', stroke_width=10, fill=füllung)
     name.append(p.M(-150,-100).V(100).H(150).V(-100).C(100,-50,-100,-50,-150,-100).Z())
 
-def befehlsstelle(name,organisation='Führung'):
-    füllung = farbe(organisation)
-    name.append(dw.Rectangle(-150,-100,300,200,fill=füllung, stroke='black', stroke_width=10))
-    p = dw.Path(stroke='black', stroke_width=10, fill='none')
-    name.append(p.M(-150,100).V(140))
+# Nur in der alten Empfehlung
+# def befehlsstelle(name,organisation='Führung'):
+#     füllung = farbe(organisation)
+#     name.append(dw.Rectangle(-150,-100,300,200,fill=füllung, stroke='black', stroke_width=10))
+#     p = dw.Path(stroke='black', stroke_width=10, fill='none')
+#     name.append(p.M(-150,100).V(140))
 
 def luftfahrzeug(name, organisation='HiOrg'):
     füllung = farbe(organisation)

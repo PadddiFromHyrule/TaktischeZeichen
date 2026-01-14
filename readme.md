@@ -1,6 +1,4 @@
 # Taktische Zeichen
-> [!NOTE]
-> Ich habe leider mit der alten Empfehlung aus 2012 als Vorlage angefangen und die neue erst später entdeckt. Einige der Zeichen sind aktuell also leider nicht auf Stand.
 ## Einleitung
 Dieses Skript soll für die Erstellung von taktischen Zeichen als *.svg oder *.png genutzt werden können. Die taktischen Zeichen sollen anhand der Empfehlung des BBK (Taktische Zeichen im Bevölkerungsschutz, Empfehlungen zur Einführung einer FwDV 102/DV 102, erste Auflage, Mai 2024, ISBN 978-3-949117-29-9) erstellt werden. 
 ## Motivation
@@ -9,7 +7,7 @@ Unabhängig von bereits bestehenden Software-Lösungen (bspw. [taktische-zeichen
 ### Zeichen
 - [x] Grundzeichen 
 - [x] Farben
-- [ ] Ergänzungszeichen
+- [x] Ergänzungszeichen
 - [ ] Fachdienste
     - [ ] ABC
     - [ ] Betreuungswesen

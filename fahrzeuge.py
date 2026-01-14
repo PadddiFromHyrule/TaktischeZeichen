@@ -122,14 +122,6 @@ def wlf(name, mobilität='Strassenfähig'): # ToDo
         name.append(dw.Circle(-20, 140, 15, fill='none', stroke='black', stroke_width=10))
         name.append(dw.Circle(20, 140, 15, fill='none', stroke='black', stroke_width=10))
 
-def fahrrad(name):
-    p = dw.Path(stroke='black', stroke_width=10, fill='none')
-    name.append(p.M(-100,-50).A(100,100,0,0,1,100,-50).M(0,-150).V(100))
-
-def kraftrad(name):
-    p = dw.Path(stroke='black', stroke_width=10, fill='none')
-    name.append(p.M(-100,-50).A(100,100,0,0,1,100,-50).M(-10,-150).V(100).M(10,-150).V(100))
-
 def hebegerät(name):
     p = dw.Path(stroke='black', stroke_width=10, fill='none')
     name.append(p.M(-75,100).V(-100).H(0).A(37.5,37.5,0,0,0,75,-100))
