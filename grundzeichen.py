@@ -31,10 +31,13 @@ def person(name, organisation='HiOrg'):
     p = dw.Path(stroke='black', stroke_width=10, fill=füllung)
     name.append(p.M(0,-100).L(100,0).L(0,100).L(-100,0).Z())
 
-def fahrzeug(name, organisation='HiOrg'):
+def fahrzeug(name, organisation='HiOrg',geschützt=False):
     füllung = farbe(organisation)
     p = dw.Path(stroke='black', stroke_width=10, fill=füllung)
-    name.append(p.M(-150,-100).V(100).H(150).V(-100).C(100,-50,-100,-50,-150,-100).Z())
+    if geschützt:
+        name.append(p.M(-150,100).V(-100).H(150).V(100).C(100,50,-100,50,-150,100).Z())
+    else:
+        name.append(p.M(-150,-100).V(100).H(150).V(-100).C(100,-50,-100,-50,-150,-100).Z())
 
 # Nur in der alten Empfehlung
 # def befehlsstelle(name,organisation='Führung'):

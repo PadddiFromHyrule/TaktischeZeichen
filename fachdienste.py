@@ -2,6 +2,59 @@ import drawsvg as dw
 import numpy as np
 from hilfsfunktionen import welle
 # Fachdienste
+# CBRN
+
+def cbrn(name):
+    name.append(dw.Line(-60,75,60,-75,stroke='black', stroke_width=10))
+    name.append(dw.Line(-60,-75,60,75,stroke='black', stroke_width=10))
+    name.append(dw.Circle(74,-61,25,fill='black'))
+    name.append(dw.Circle(-74,-61,25,fill='black'))
+
+def cbrn_messen(name):
+    name.append(dw.Line(-60,75,60,-75,stroke='black', stroke_width=10))
+    name.append(dw.Line(-60,-75,60,75,stroke='black', stroke_width=10))
+    name.append(dw.Line(-120,45,120,-45,stroke='black', stroke_width=10))
+    name.append(dw.Circle(74,-61,25,fill='black'))
+    name.append(dw.Circle(-74,-61,25,fill='black'))
+
+def dekontamination(name):
+    name.append(dw.Line(-60,75,60,-75,stroke='black', stroke_width=10))
+    name.append(dw.Line(-60,-75,60,75,stroke='black', stroke_width=10))
+    p = dw.Path(stroke='black', stroke_width=10)
+    name.append(p.M(-60,75).h(50).h(-50).v(-50))
+    name.append(p.M(60,75).h(-50).h(50).v(-50))
+    name.append(dw.Circle(74,-61,25,fill='black'))
+    name.append(dw.Circle(-74,-61,25,fill='black'))
+
+def umweltschutz_gewässer(name):
+    name.append(dw.Line(-60,25,60,-75,stroke='black', stroke_width=10))
+    name.append(dw.Line(-60,-75,60,25,stroke='black', stroke_width=10))
+    p = dw.Path(stroke='black', stroke_width=10)
+    name.append(p.M(-60,25).h(50).h(-50).v(-50))
+    name.append(p.M(60,25).h(-50).h(50).v(-50))
+    name.append(dw.Circle(74,-61,25,fill='black'))
+    name.append(dw.Circle(-74,-61,25,fill='black'))
+    welle(name,-75,65,2,75,25)
+    welle(name,-75,85,2,75,25)
+
+def trinkwasseraufbereitung(name):
+    p =dw.Path(stroke='black', stroke_width=10,fill='none')
+    name.append(p.M(60,-75).A(100,100,0,0,1,60,75).m(-5,0).h(25).h(-25).v(-25))
+    name.append(p.M(-60,-75).A(100,100,0,0,0,-60,75).m(5,0).h(-25).h(25).v(-25))
+    welle(name,-60,-25,2,60,20)
+    name.append(p.M(-60,15).h(90).A(30,30,0,0,1,60,45))
+    name.append(p.M(20,30).v(-30).m(-15,0).h(30))
+
+# Betreuung
+
+def betreuung(name):
+    name.append(dw.Line(-150,100,0,-100,stroke='black', stroke_width=10))
+    name.append(dw.Line(0,-100,150,100,stroke='black', stroke_width=10))
+
+def psnv(name):
+    betreuung(name)
+    name.append(dw.Text('PSNV',50, x=0, y=75,text_anchor='middle', font_family='DejaVu Sans',font_weight='bold'))
+
 def sandienst(name, arzt=False, pflege=False, rettungsdienst=False):
     name.append(dw.Line(0,-100,0,100,stroke='black', stroke_width=10))
     name.append(dw.Line(-150,0,150,0,stroke='black', stroke_width=10))
@@ -12,9 +65,6 @@ def sandienst(name, arzt=False, pflege=False, rettungsdienst=False):
     if rettungsdienst:
         name.append(dw.Line(75,30,75,-30,stroke='black', stroke_width=10))
 
-def betreuung(name):
-    name.append(dw.Line(-150,100,0,-100,stroke='black', stroke_width=10))
-    name.append(dw.Line(0,-100,150,100,stroke='black', stroke_width=10))
 
 def erkundung(name):
     name.append(dw.Line(-150,100,150,-100,stroke='black', stroke_width=10))
