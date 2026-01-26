@@ -74,9 +74,9 @@ def löschen(name):
     name.append(dw.Line(25,0,150,-100,stroke='black',stroke_width=10))
     name.append(dw.Line(25,0,150,100,stroke='black',stroke_width=10))
 
-def wasserversorgung(name):
-    löschen(name)
-    welle(name,-130,-30,2,70,30)
+# def wasserversorgung(name):
+#     löschen(name)
+#     welle(name,-130,-30,2,70,30)
 
 def transport(name):
     name.append(dw.Circle(0, 0, 90, fill='none', stroke='black', stroke_width=10))
@@ -100,3 +100,16 @@ def kampfmittelbeseitigung(name):
     name.append(dw.Circle(0,0,75,fill='none',stroke='black', stroke_width=10))
     name.append(dw.Line(0.5*np.sqrt(2)*75,-0.5*np.sqrt(2)*75,0.5*np.sqrt(2)*110,-0.5*np.sqrt(2)*110,fill='none',stroke='black', stroke_width=10))
     name.append(dw.Line(-0.5*np.sqrt(2)*75,-0.5*np.sqrt(2)*75,-0.5*np.sqrt(2)*110,-0.5*np.sqrt(2)*110,fill='none',stroke='black', stroke_width=10))
+
+def gefahr_a(name):
+    name.append(dw.Circle(0,0,20,stroke='black',stroke_width='black',fill='black'))
+    # winkel_ende = winkel_start + 60
+    p = dw.Path(stroke='black',fill='black')
+    for x in [30, 150, 270]:
+        name.append(p.M(np.sin(np.radians(x))*30,np.cos(np.radians(x))*30).L(np.sin(np.radians(x))*90,np.cos(np.radians(x))*90))
+        name.append(p.A(125,125,0,0,1,np.sin(np.radians(x-60))*90,np.cos(np.radians(x-60))*90))
+        name.append(p.L(np.sin(np.radians(x-60))*30,np.cos(np.radians(x-60))*30))
+        name.append(p.A(30,30,0,0,0,np.sin(np.radians(x))*30,np.cos(np.radians(x))*30).Z())
+
+def gefahr_b(name):
+    pass
