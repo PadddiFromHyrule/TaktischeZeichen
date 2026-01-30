@@ -15,7 +15,7 @@ zeichen.append(dw.Rectangle(-225,-225,450,450,fill='white'))
 #person(zeichen,'THW')
 #sandienst(zeichen,arzt=True)
 #europäische_union(zeichen)
-fahrzeug(zeichen,geschützt=False)
+einheit(zeichen)
 gefahr_b(zeichen)
 # kampfmittelbeseitigung(zeichen)
 for element in sys.argv:

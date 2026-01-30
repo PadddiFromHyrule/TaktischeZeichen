@@ -102,7 +102,7 @@ def kampfmittelbeseitigung(name):
     name.append(dw.Line(-0.5*np.sqrt(2)*75,-0.5*np.sqrt(2)*75,-0.5*np.sqrt(2)*110,-0.5*np.sqrt(2)*110,fill='none',stroke='black', stroke_width=10))
 
 def gefahr_a(name):
-    name.append(dw.Circle(0,0,20,stroke='black',stroke_width='black',fill='black'))
+    name.append(dw.Circle(0,0,15,stroke='black',stroke_width=10,fill='black'))
     # winkel_ende = winkel_start + 60
     p = dw.Path(stroke='black',fill='black')
     for x in [30, 150, 270]:
@@ -112,4 +112,7 @@ def gefahr_a(name):
         name.append(p.A(30,30,0,0,0,np.sin(np.radians(x))*30,np.cos(np.radians(x))*30).Z())
 
 def gefahr_b(name):
-    pass
+    p = dw.Path(stroke='black', stroke_width=5, fill='none')
+    name.append(p.arc(0, -30, 40, 290, 250))
+    name.append(p.arc(30*np.sqrt(3)/2, 15, 40, 50, 10))
+    name.append(p.arc(-30*np.sqrt(3)/2, 15, 40, 170, 130))
