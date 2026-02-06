@@ -116,3 +116,14 @@ def gefahr_b(name):
     name.append(p.arc(0, -30, 40, 290, 250))
     name.append(p.arc(30*np.sqrt(3)/2, 15, 40, 50, 10))
     name.append(p.arc(-30*np.sqrt(3)/2, 15, 40, 170, 130))
+
+def gefahr_c(name):
+    p = dw.Path(stroke='black', stroke_width=5, fill='none')
+    name.append(p.M(-25,-75).H(25).V(20).L(75,75).H(-75).L(-25,20).Z())
+
+def seelsorge(name):
+    p = dw.Path(stroke='black', stroke_width=5, fill='none')
+    name.append(p.M(-15,-75).V(75))
+    name.append(p.M(15,-75).V(75))
+    name.append(p.M(-65,-35).H(65))
+    name.append(p.M(-65, -5).H(65))
