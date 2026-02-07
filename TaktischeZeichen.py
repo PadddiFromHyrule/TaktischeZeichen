@@ -16,9 +16,6 @@ zeichen.append(dw.Rectangle(-225,-225,450,450,fill='white'))
 #sandienst(zeichen,arzt=True)
 #europäische_union(zeichen)
 einheit(zeichen)
-seelsorge(zeichen)
-# kampfmittelbeseitigung(zeichen)
-for element in sys.argv:
-    if element == 'einheit':
-        einheit(zeichen)
+atemschutz(zeichen)
+
 zeichen.save_svg('Ausgabe/Penis.svg')

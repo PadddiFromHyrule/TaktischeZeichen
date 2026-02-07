@@ -127,3 +127,34 @@ def seelsorge(name):
     name.append(p.M(15,-75).V(75))
     name.append(p.M(-65,-35).H(65))
     name.append(p.M(-65, -5).H(65))
+
+def unterbringung(name):
+    p = dw.Path(stroke='black', stroke_width=5, fill='none')
+    name.append(p.M(-125,-75).V(75))
+    name.append(p.M(125,-75).V(75))
+    name.append(p.M(-125,25).H(125))
+    name.append(p.M(-125,25).A(125,45,0,1,1,125,25))
+
+def unterbringung_sitzend(name):
+    p = dw.Path(stroke='black', stroke_width=5, fill='none')
+    name.append(p.M(-37.5,-75).V(75))
+    name.append(p.M(-37.5,0).H(37.5).V(75))
+
+def löschwasser(name):
+    welle(name,-100,25,2,100,75)
+
+def schaummittel(name):
+    p = dw.Path(stroke='black', stroke_width=5, fill='black')
+    name.append(p.M(-75,-75).H(75).L(0,(np.sqrt(3) / 2) * 75).Z())
+
+def sonderlöschmittel_fest(name):
+    name.append(dw.Rectangle(-75,-75,150,150,fill='black'))
+
+def sonderlöschmittel_gas(name):
+    name.append(dw.Circle(0,0,75,fill='black'))
+
+def atemschutz(name):
+    p = dw.Path(stroke='black', stroke_width=5, fill = 'none', stroke_linejoin='round')
+    name.append(p.M(-30,40).V(-65).Q(-30,-75,-20,-75).H(20).Q(30,-75,30,-65).V(40).A(30,20,0,1,1,-30,40))
+    name.append(p.M(0,60).v(10))
+    name.append(dw.Circle(0,80,10,fill='none',stroke='black',stroke_width=5))
