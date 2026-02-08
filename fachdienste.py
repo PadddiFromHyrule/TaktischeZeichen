@@ -158,3 +158,9 @@ def atemschutz(name):
     name.append(p.M(-30,40).V(-65).Q(-30,-75,-20,-75).H(20).Q(30,-75,30,-65).V(40).A(30,20,0,1,1,-30,40))
     name.append(p.M(0,60).v(10))
     name.append(dw.Circle(0,80,10,fill='none',stroke='black',stroke_width=5))
+
+def orten_bio(name):
+    p = dw.Path(stroke='black', stroke_width=5, fill = 'none', stroke_linejoin='round')
+    name.append(p.M(-125,-75).L(-25,75))
+    name.append(p.M(-125,75).L(-75,0).H(125).L(75,-75).L(25,75))
+    name.append(p.M(50,0).L(100,75))
